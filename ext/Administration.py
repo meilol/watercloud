@@ -35,7 +35,7 @@ class Administration(commands.Cog):
         await ctx.guild.edit(reason=reason, system_channel_id=None)
         
     @commands.command(name="unlock", description="Unlock the server | -unlock")
-    #@commands.has_permissions(manage_guild=True)
+    @commands.has_permissions(manage_guild=True)
     async def unlock(self, ctx, *, reason="No reason provided"):
         if ctx.message.author.guild_permissions.manage_guild == False:
             embed = discord.Embed(title=f"❌ Could not unlock server", description=f"Failed to execute", timestamp=datetime.datetime.utcnow(), color=discord.Color.red())
